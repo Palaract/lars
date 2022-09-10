@@ -314,8 +314,6 @@ class IISSource(object):
                                     line.rstrip())
 
         if directive == 'Version':
-            if self.version is not None:
-                raise IISVersionError('Found a second #Version directive')
             self.version = match.group('text')
             if self.version != '1.0':
                 raise IISVersionError('Unknown IIS log version %s' %
