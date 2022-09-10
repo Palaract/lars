@@ -475,8 +475,6 @@ class IISSource(object):
             field_fn, field_re = self.TYPES[field_type]
             pattern += field_re % {'name': python_name}
             tuple_funcs.append(field_fn)
-            if original_name in self.fields:
-                raise IISFieldsError('Duplicate field name %s' % original_name)
             self.fields.append(original_name)
             tuple_fields.append(python_name)
         logging.debug('Constructing row regex: %s', pattern)
