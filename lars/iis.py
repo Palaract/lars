@@ -444,8 +444,6 @@ class IISSource(object):
         :param str line: The content of the ``#Fields`` directive
         """
         logging.debug('Parsing #Fields: %s', line)
-        if self.fields:
-            raise IISFieldsError('Second #Fields directive found')
         fields = self.FIELD_RE.findall(line)
         pattern = ''
         tuple_fields = []
